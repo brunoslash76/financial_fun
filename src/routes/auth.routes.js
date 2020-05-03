@@ -48,6 +48,7 @@ const AuthRoutes = () => {
             <AuthStack.Screen
                 name="Login"
                 component={Login}
+                options={{headerShown: false}}
             />
         </AuthStack.Navigator>
     )

@@ -4,15 +4,15 @@ import { RectButton } from 'react-native-gesture-handler';
 export const Container = styled(RectButton)`
   align-items: center;
   justify-content: center;
-  background-color: ${({theme:{colors}, disabled}) => disabled ? colors.offWhite  : colors.brandSecondary};
+  background-color: ${props => props.disabled ? props.theme.colors.offWhite  : props.theme.colors.colors.brandSecondary};
   border-radius: 25px;
   height: 55px;
   width: 100%;
 `;
 
 export const Text = styled.Text`
-  font-family: ${({theme: {font: { family }}}) => family};
-  color: ${({theme: { colors: {white, greyLight}}, disabled }) => disabled ? greyLight : white };
-  font-weight: ${({ theme: { font: { weight: { bold }}}}) => bold};
-  font-size: ${({ theme: { font: { size: { title}}} }) => title};
+  font-family: ${props => props.theme.font.family};
+  color: ${props => props.disabled ? props.theme.colors.greyLight : props.theme.colors.white};
+  font-weight: ${props => props.theme.font.weight.bold};
+  font-size: ${props => props.theme.font.size.title};
 `;
