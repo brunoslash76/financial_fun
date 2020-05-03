@@ -26,6 +26,9 @@ const AuthRoutes = () => {
                 headerStyle: {
                     backgroundColor: theme.color.brandPrimary,
                 },
+                cardStyle: {
+                    backgroundColor: theme.color.white,
+                },
                 headerBackTitle: "Voltar"
             }}
         >
