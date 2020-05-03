@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import Theme from './src/theme';
+
 import './src/config/reactotron.config';
 
 export default function App() {
