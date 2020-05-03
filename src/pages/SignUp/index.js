@@ -8,18 +8,29 @@ import {
   ContentContainer,
   Title,
   Paragraph,
-  BottomParagraph,
   BottomContainer,
 } from './styles';
 
 export default function SignUp({navigation}) {
 
   const passwordRef = useRef();
+  const emailRef = useRef();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const verifyEmptyData = () => (!(email !== '' && password !== ''));
+
+  const clearData = () => {
+    setEmail('');
+    setPassword('');
+  }
+
+  const shouldNavigate = () => {
+    emailRef.current.focus();
+    clearData();
+    verifyEmptyData() ? null : navigation.navigate('Profile')
+  };
 
   return (
     <Container>
@@ -37,6 +48,7 @@ export default function SignUp({navigation}) {
             autoCorrect={false}
             returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
+            ref={emailRef}
           />
           <Paragraph>Crie sua senha:</Paragraph>
           <Input 
@@ -46,11 +58,11 @@ export default function SignUp({navigation}) {
             autoCapitalize={false}
             ref={passwordRef}
             returnKeyType="send"
-            onSubmitEditing={() => {}}
+            onSubmitEditing={shouldNavigate}
           />
           <Button 
             disabled={verifyEmptyData()} 
-            onPress={()=> {}}
+            onPress={shouldNavigate}
           >
             Cadastrar
           </Button>
