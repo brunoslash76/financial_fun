@@ -9,8 +9,8 @@ import { AppLoading } from 'expo';
 
 const theme = {
     colors: {
-        brandSecondary: '#ff9f4d',
         brandPrimary: '#16b4a1',
+        brandSecondary: '#ff9f4d',
         white: '#fff',
         offWhite: '#ececec',
         grey: '#5e5e5e',
@@ -26,7 +26,7 @@ const Theme = ({ children }) => {
         'Ubuntu-Bold': require('../../assets/fonts/Ubuntu-Bold.ttf'),
         'Ubuntu-Regular': require('../../assets/fonts/Ubuntu-Regular.ttf'),
     });
-    
+
     return (
         <ThemeProvider theme={theme}>
         {
