@@ -10,11 +10,21 @@ const theme = {
         brandSecondary: '#ff9f4d',
         white: '#fff',
         offWhite: '#ececec',
+        greyDark: '#afafaf',
         grey: '#5e5e5e',
-        liteGrey: '#9f9f9f',
+        greyLight: '#9f9f9f',
     },
     font: {
-        family: 'Ubuntu',
+        family: 'Ubuntu-Regular',
+        size: {
+            title: 20,
+            body: 16,
+            caption: 14,
+        },
+        weigth: {
+            regular: 'regular',
+            bold: 'bold'
+        }
     },
 };
 
