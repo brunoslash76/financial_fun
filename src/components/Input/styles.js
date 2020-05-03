@@ -4,8 +4,6 @@ export const Container = styled.View`
     flex-direction: row;
     align-items: center;
     border-radius: 4px;
-    height: 55px;
-    padding: 0 15px;
 `;
 
 export const TInput = styled.TextInput`
@@ -15,5 +13,8 @@ export const TInput = styled.TextInput`
     font-family: ${({theme: { font }}) => font.family};
     border-radius: 4px;
     background-color: transparent;
-    border: 1px solid ${({theme: { colors }}) => colors.white}
+    border: 1px solid ${({theme: { colors }}) => colors.white};
+    height: 55px;
+    padding: 16px;
+    margin-bottom: 32px;
 `;

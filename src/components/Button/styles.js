@@ -11,9 +11,8 @@ export const Container = styled(RectButton)`
 `;
 
 export const Text = styled.Text`
-  font-family: ${({theme: {font}}) => font.family};
-  color: ${({theme: {colors}, disabled }) => disabled ? colors.greyLight : colors.white};
-  font-weight: ${({ theme }) => theme.font.weigth.bold};
-  font-size: ${({theme}) => theme.font.size.title};
-
+  font-family: ${({theme: {font: { family }}}) => family};
+  color: ${({theme: { colors: {white, greyLight}}, disabled }) =>  disabled ? white  : greyLight};
+  font-weight: ${({ theme: { font: { weight: { bold }}}}) => bold};
+  font-size: ${({ theme: { font: { size: { title}}} }) => title};
 `;

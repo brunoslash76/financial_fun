@@ -17,14 +17,14 @@ const theme = {
     font: {
         family: 'Ubuntu-Regular',
         size: {
-            title: 20,
-            body: 16,
-            caption: 14,
+            title: '20px',
+            body: '16px',
+            caption: '14px',
         },
-        weigth: {
-            regular: 'regular',
-            bold: 'bold'
-        }
+        weight: {
+            normal: 'normal',
+            bold: 'bold',
+        },
     },
 };
 

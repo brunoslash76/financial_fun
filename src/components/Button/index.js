@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Container, Text } from './styles';
 
 export default function Button({ children, isLoading, ...rest }) {
+
   return (
     <Container {...rest}>
       {isLoading ? (
