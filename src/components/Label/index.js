@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
 import { Container } from './styles';
 
-export default function Login() {
+export default function Label({children}) {
   return (
     <Container>
-        <Text>Login</Text>
+        {children}
     </Container>
   );
 }

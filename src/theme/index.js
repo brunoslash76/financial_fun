@@ -10,9 +10,9 @@ const theme = {
         brandSecondary: '#ff9f4d',
         white: '#fff',
         offWhite: '#ececec',
-        greyDark: '#afafaf',
         grey: '#5e5e5e',
         greyLight: '#9f9f9f',
+        greyDark: '#afafaf',
     },
     font: {
         family: 'Ubuntu-Regular',
