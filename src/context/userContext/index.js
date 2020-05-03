@@ -1,4 +1,5 @@
 import React from 'react';
+import FirebaseService from '../../services/FirebaseService';
 
 import {
     LOGIN_SUCCESS,

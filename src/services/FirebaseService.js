@@ -3,9 +3,8 @@ import { firebaseDatabase, firebaseAuth } from '../utils/firebaseUtils';
 export default class FirebaseService {
     static getUsers = (nodePath, callback, size = 10) => {
         let query = firebaseDatabase.ref(nodePath).limitToLast(size);
-        console.tron.log(query);
+        // console.tron.log(query);
         query.on('value', dataSnapshot => {
-            
             
             let items = [];
             
@@ -25,8 +24,8 @@ export default class FirebaseService {
         return query;
     };
 
-    static auth = async(email, password) => {
-        const credentials = await  firebaseAuth
+    static login = async (email, password) => {
+        const credentials = await firebaseAuth
             .signInWithEmailAndPassword(email, password)
             .catch(error => { 
                 return {
@@ -36,5 +35,5 @@ export default class FirebaseService {
             });
         
             return credentials;
-    }
+    };
 }

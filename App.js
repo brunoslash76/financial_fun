@@ -1,28 +1,20 @@
-import React, { useEffect } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
 import FirebaseService from './src/services/FirebaseService';
+import { View } from 'react-native';
 
 import './src/config/reactotron.config';
 
 export default function App() {
 
+    // const user = useAuth()
 
-  useEffect(() => {
+    React.useEffect(() => {
+      const credentials = FirebaseService.login('bruo@email.com', 'btruno@123');
+      console.tron.log(credentials);
+    }, [])
 
-    function auth() {
-      const user = FirebaseService.auth('brun@email.com', 'bruno@123');
-      if (user.hasError) {
-        console.tron.log('error => ', user)
-      }
-    };
-
-    auth();
-    
-  }, [])
 
   return (
-    <View>
-      <Text>Yeey Reactotron is now available</Text>
-    </View>
+    <View></View>
   );
 }
