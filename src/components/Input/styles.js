@@ -13,7 +13,7 @@ export const TInput = styled.TextInput`
     font-family: ${({theme: { font }}) => font.family};
     border-radius: 4px;
     background-color: transparent;
-    border: 1px solid ${({theme: { colors }}) => colors.white};
+    border: 1px solid ${({darkBorder, theme: { colors }}) => darkBorder ? colors.grey : colors.white};
     height: 55px;
     padding: 16px;
     margin-bottom: 32px;
