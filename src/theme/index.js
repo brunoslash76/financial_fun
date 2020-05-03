@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components/native';
 import { useFonts } from '@use-expo/font';
 import { AppLoading } from 'expo';
-
-
-
 
 const theme = {
     colors: {
