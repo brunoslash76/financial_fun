@@ -18,16 +18,17 @@ export default function Login() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const handleEmail = (text) => {
-    console.tron.log(text);
     setEmail(text);
   }
 
   const handlePassword = (text) => {
-    console.tron.log(text);
-    setPassword(text);
+    
   }
+
+  const verifyEmptyData = () => (!(email !== '' && password !== ''));
 
   return (
     <Container>
@@ -38,7 +39,7 @@ export default function Login() {
           <Title>Cadastre-se</Title>
           <Paragraph>Informe seu Email:</Paragraph>
           <Input 
-            onChangeText={handleEmail} 
+            onChangeText={text => setEmail(text)} 
             value={email} 
             autoCapitalize={false}
             keyboardType="email-address"
@@ -48,21 +49,25 @@ export default function Login() {
           />
           <Paragraph>Crie sua senha:</Paragraph>
           <Input 
-            onChangeText={handlePassword} 
+            onChangeText={text => setPassword(text)} 
             value={password} 
             secureTextEntry 
             autoCapitalize={false}
             ref={passwordRef}
             returnKeyType="send"
+            onSubmitEditing={() => {}}
           />
-          <Button disabled={true} onPress={()=> {console.tron.log('banana')}}>
+          <Button 
+            disabled={verifyEmptyData()} 
+            onPress={()=> {}}
+          >
             Cadastrar
           </Button>
         </ContentContainer>
           
         <BottomContainer>
           <TouchableOpacity
-            onPress={() => console.tron.log('banana')}
+            onPress={() => {}}
           >
             <Text>
               <Paragraph>Já tem uma conta? </Paragraph> 
