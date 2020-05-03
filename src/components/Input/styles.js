@@ -7,13 +7,13 @@ export const Container = styled.View`
 `;
 
 export const TInput = styled.TextInput`
-    color: ${({theme: {colors}}) => colors.white};
+    color: ${props => props.theme.colors.white};
     flex: 1;
-    font-size: ${({theme: { font: { size } }}) => size.title};
-    font-family: ${({theme: { font }}) => font.family};
+    font-size: ${props => props.theme.font.size.title};
+    font-family: ${props => props.theme.font.family};
     border-radius: 4px;
     background-color: transparent;
-    border: 1px solid ${({darkBorder, theme: { colors }}) => darkBorder ? colors.grey : colors.white};
+    border: 1px solid ${props => props.darkBorder ? props.theme.colors.grey : props.theme.colors.white};
     height: 55px;
     padding: 16px;
     margin-bottom: 32px;

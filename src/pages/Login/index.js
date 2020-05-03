@@ -11,7 +11,7 @@ import {
   BottomContainer,
 } from './styles';
 
-export default function SignUp({navigation}) {
+export default function Login({navigation}) {
 
   const passwordRef = useRef();
   const emailRef = useRef();
@@ -29,7 +29,7 @@ export default function SignUp({navigation}) {
   const shouldNavigate = () => {
     emailRef.current.focus();
     clearData();
-    verifyEmptyData() ? null : navigation.navigate('Home')
+    // verifyEmptyData() ? null : navigation.navigate('Home');
   };
 
   return (
