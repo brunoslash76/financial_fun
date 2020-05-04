@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import { Container, TInput } from './styles';
 
-function Input({ style, ...rest }, ref) {
+function Input({ style, inputStyle, maxLength, ...rest  }, ref) {
   return (
     <Container style={style}>
-      <TInput {...rest} ref={ref} />
+      <TInput {...rest} ref={ref} style={inputStyle} maxLength={maxLength}/>
     </Container>
   );
 }
