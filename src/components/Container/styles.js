@@ -10,9 +10,6 @@ export const MainContainer = styled.View`
 export const ContentContainer = styled.View`
   position: relative;
   flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 32px;
   width: 100%;
 `;
