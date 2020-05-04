@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { 
     Button,
@@ -10,17 +11,14 @@ const Switcher = ({text, onPress}) => {
     const [active, setActive] = useState(false);
     const [buttonClicked, setButtonClicked] = useState(0);
 
-    const handleClick = (value, buttonActive) => {
-        if (buttonActive === buttonClicked) return;
+    const handleClick = (value = text[0], buttonActive) => {
         if (onPress) onPress(value);
-        console.tron.log(value)
+        if (buttonActive === buttonClicked) return;
         setActive(!active);
         setButtonClicked(buttonActive);
     }
 
-    const checkActiveButton = () => {
-        return active;
-    }
+    const checkActiveButton = () => active;
 
 	return (
         <Container>
@@ -33,5 +31,10 @@ const Switcher = ({text, onPress}) => {
         </Container>
     )
 };
+
+Switcher.propTypes = {
+    text: PropTypes.array.isRequired,
+    onPress: PropTypes.func.isRequired,
+}
 
 export default Switcher;

@@ -18,8 +18,6 @@ const theme = {
 };
 
 const AuthRoutes = () => {
-
-    console.tron.log({arrowLeft})
     return (
         <AuthStack.Navigator
             screenOptions={{

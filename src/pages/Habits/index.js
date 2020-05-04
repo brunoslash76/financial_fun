@@ -36,7 +36,7 @@ const Habits = ({ navigation }) => {
 					<SmallText>Muito importante</SmallText>
         </CustomView>
         
-				<View style={{margimBottom: 24}}>
+				<View style={{marginBottom: 16}}>
 					<Slider
 						style
 						maximumTrackTintColor='#9ef7ec'
@@ -50,18 +50,23 @@ const Habits = ({ navigation }) => {
 					/>
         </View>
         
-				<View>
+				<View style={{marginBottom: 32}}>
           <Label>Você tem o hábito de poupar?</Label>
           <Switcher 
             text={["Sim", "Não"]}
+            onPress={(option) => console.tron.log(option)}
           />
 				</View>
 
-				<View>
-					<Label>Você tem o hábito de investir?</Label>
+        <View style={{marginBottom: 32}}>
+          <Label>Você tem o hábito de investir?</Label>
+          <Switcher 
+            text={["Sim", "Não"]}
+            onPress={(option) => console.tron.log(option)}
+          />
 				</View>
 
-				<View>
+				<View style={{marginBottom: 32}}>
 					<Label>
 						Qual é a proporção da renda que você dedica aos
 						investimentos / poupança?
@@ -83,13 +88,14 @@ const Habits = ({ navigation }) => {
 					</View>
 				</View>
 
-				<View>
+        <View style={{marginBottom: 32}}>
 					<Paragraph>
 						Quais são os tipos de investimentos que você faz?
 					</Paragraph>
 					<Input darkBorder />
-				</View>
-				<View>
+        </View>
+        
+        <View style={{marginBottom: 32}}>
 					<Button disabled onPress={() => {}}>
 						Próximo
 					</Button>
