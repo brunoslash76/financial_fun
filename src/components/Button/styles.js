@@ -11,7 +11,7 @@ export const Container = styled(RectButton)`
 `;
 
 export const Text = styled.Text`
-  font-family: ${props => props.theme.font.family};
+  font-family: ${props => props.theme.font.family.ubuntuBold};
   color: ${props => props.disabled ? props.theme.colors.greyLight : props.theme.colors.white};
   font-weight: ${props => props.theme.font.weight.bold};
   font-size: ${props => props.theme.font.size.title};
