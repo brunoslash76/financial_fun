@@ -15,7 +15,10 @@ const theme = {
         greyDark: '#afafaf',
     },
     font: {
-        family: 'Ubuntu-Regular',
+        family: {
+            ubuntuRegular: 'Ubuntu-Regular',
+            ubuntuBold: 'Ubuntu-Bold'
+        },
         size: {
             title: '20px',
             body: '16px',
