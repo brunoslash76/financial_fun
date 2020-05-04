@@ -6,6 +6,7 @@ import arrowLeft from '../../assets/img/arrow-left-header.png'
 import SignUp from '../pages/SignUp';
 import Profile from '../pages/Profile';
 import Login from '../pages/Login';
+import Habits from '../pages/Habits';
 
 const AuthStack = createStackNavigator();
 
@@ -17,8 +18,6 @@ const theme = {
 };
 
 const AuthRoutes = () => {
-
-    console.tron.log({arrowLeft})
     return (
         <AuthStack.Navigator
             screenOptions={{
@@ -33,11 +32,6 @@ const AuthRoutes = () => {
             }}
         >
             <AuthStack.Screen
-                name="SignUp"
-                component={SignUp}
-                options={{headerShown: false}}
-            />
-            <AuthStack.Screen
                 name="Profile"
                 component={Profile}
                 options={{
@@ -46,10 +40,21 @@ const AuthRoutes = () => {
                 }}
             />
             <AuthStack.Screen
+                name="Habits"
+                component={Habits}
+            />
+            <AuthStack.Screen
+                name="SignUp"
+                component={SignUp}
+                options={{headerShown: false}}
+            />
+            <AuthStack.Screen
                 name="Login"
                 component={Login}
                 options={{headerShown: false}}
             />
+            
+            
         </AuthStack.Navigator>
     )
 

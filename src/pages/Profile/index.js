@@ -1,5 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { Text, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { 
+  KeyboardAvoidingView, 
+  Platform, 
+  ScrollView,
+} from 'react-native';
 
 import { 
   Container,
@@ -67,12 +71,12 @@ export default function Profile({navigation}) {
             value={city}
             ref={cityRef}
             returnKeyType="send"
-            onSubmitEditing={() => console.tron.log('tabatinga')}
+            onSubmitEditing={() => navigation.navigate('Habits')}
           />
 
           <Button 
             disabled={verifyFields()}
-            onPress={() => {/*navigation.navigate()*/} }
+            onPress={() => {navigation.navigate('Habits')} }
           >Próximo</Button>
         </KeyboardAvoidingView>
         </Container>
