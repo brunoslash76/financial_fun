@@ -77,7 +77,9 @@ export default function Profile({navigation}) {
           <Button 
             disabled={verifyFields()}
             onPress={() => {navigation.navigate('Habits')} }
-          >Próximo</Button>
+          >
+            Próximo
+          </Button>
         </KeyboardAvoidingView>
         </Container>
       </ScrollView>

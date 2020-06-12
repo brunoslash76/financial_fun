@@ -5,4 +5,5 @@ export const Container = styled.Text`
     font-size: ${props => props.theme.font.size.title};
     font-weight: ${props => props.theme.font.weight.bold};
     align-self: flex-start;
+    margin-bottom: 32px;
 `;

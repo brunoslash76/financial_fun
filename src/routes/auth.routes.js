@@ -7,6 +7,8 @@ import SignUp from '../pages/SignUp';
 import Profile from '../pages/Profile';
 import Login from '../pages/Login';
 import Habits from '../pages/Habits';
+import AddChildren from '../pages/AddChildren';
+import ChildProfile from '../pages/ChildProfile';
 
 const AuthStack = createStackNavigator();
 
@@ -31,11 +33,27 @@ const AuthRoutes = () => {
                 headerBackTitle: "Voltar"
             }}
         >
+            
+            <AuthStack.Screen
+                name="AddChildren"
+                component={AddChildren}
+                options={{
+                    headerLeft: null,
+                    title: "Raise"
+                }}
+            />
+            <AuthStack.Screen
+                name="ChildProfile"
+                component={ChildProfile}
+                options={{
+                    headerLeft: null,
+                    title: "Raise"
+                }}
+            />
             <AuthStack.Screen
                 name="Profile"
                 component={Profile}
                 options={{
-                    title: 'Bem vindo ao Raise',
                     headerLeft: null,
                 }}
             />
