@@ -1,9 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { 
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native';
+import React, { useRef, useState, useEffect } from 'react';
+import { ScrollView, KeyboardAvoidingView, Platform, View } from 'react-native';
 import {
 	Input,
 	Label,
@@ -14,19 +10,25 @@ import {
 	Container,
 } from '../../components';
 
-import { Section } from './styles';
+import { Section, InnerContainer } from './styles';
 
-const ChildProfile = () => {
+const ChildProfile = ({ navigation }) => {
+	const nameRef = useRef();
+	const ageRef = useRef();
 
-  const nameRef = useRef();
-  const ageRef = useRef();
+	const [name, setName] = useState(null);
+	const [age, setAge] = useState(null);
 
-  const [name, setName] = useState(null)
-  const [age, setAge] = useState(null)
+	useEffect(() => {
+		return function cleanUpFields() {
+			setName(null)
+			setAge(null)
+		}
+	}, [])
 
-  function verifyFields() {
-    return true
-  }
+	function verifyFields() {
+		return true;
+	}
 
 	return (
 		<ScrollView>
@@ -35,45 +37,51 @@ const ChildProfile = () => {
 					behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
 					style={{ flex: 1 }}
 				>
-					<Title>Preencha as informações do dependente</Title>
-					<Section>
-						<AddImageButton
-							onPress={() => console.tron.log('banana')}
-						/>
-						<Paragraph>
-							Escolha uma foto para o perfil do dependente (opcional)
-						</Paragraph>
-					</Section>
-					<Label>Informe o nome do dependente:</Label>
-					<Input
-						darkBorder
-						onChangeText={() => {}}
-						value={name}
-						ref={nameRef}
-						returnKeyType='next'
-						onSubmitEditing={() => ageRef.current.focus()}
-					/>
+					<InnerContainer>
+						<View>
+							<Title>Preencha as informações do dependente</Title>
+							<Section>
+								<AddImageButton
+									onPress={() => console.tron.log('banana')}
+								/>
+								<Paragraph>
+									Escolha uma foto para o perfil do dependente
+									(opcional)
+								</Paragraph>
+							</Section>
+							<Label>Informe o nome do dependente:</Label>
+							<Input
+								darkBorder
+								onChangeText={setName}
+								value={name}
+								ref={nameRef}
+								returnKeyType='next'
+								onSubmitEditing={() => ageRef.current.focus()}
+							/>
 
-					<Label>Informe a idade do dependente:</Label>
-					<Input
-						darkBorder
-						style={{ width: 80 }}
-						onChangeText={setAge}
-						value={age}
-						ref={ageRef}
-						returnKeyType='next'
-						onSubmitEditing={() => cityRef.current.focus()}
-						enablesReturnKeyAutomatically={true}
-					/>
-
-					<Button
-						disabled={verifyFields()}
-						onPress={() => {
-							navigation.navigate('Habits');
-						}}
-					>
-						Próximo
-					</Button>
+							<Label>Informe a idade do dependente:</Label>
+							<Input
+								darkBorder
+								style={{ width: 80 }}
+								onChangeText={setAge}
+								value={age}
+								ref={ageRef}
+								returnKeyType='next'
+								enablesReturnKeyAutomatically={true}
+							/>
+						</View>
+						<Button
+							disabled={verifyFields()}
+							onPress={() => {
+								navigation.navigate('AddChildren', {
+									name,
+									age,
+								});
+							}}
+						>
+							Próximo
+						</Button>
+					</InnerContainer>
 				</KeyboardAvoidingView>
 			</Container>
 		</ScrollView>
