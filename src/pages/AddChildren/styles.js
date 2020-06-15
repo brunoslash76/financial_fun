@@ -33,7 +33,5 @@ export const InnerContainer = styled.View`
     flex: 1;
     height: ${Dimensions.get('screen').height - 200};
     min-height: 100%;
-    /* flex-direction: column; */
     justify-content: space-between;
-    /* border: 1px solid red; */
 `

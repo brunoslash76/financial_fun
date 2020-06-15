@@ -1,10 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { Container } from '../../components';
-import { Button, Text, ButtonText, InnerContainer } from './styles';
+import { isEmpty } from '../../utils/utils.functions';
+
+import { Container, DependentsList } from '../../components';
 import { Button as NButton } from '../../components';
 
-export default function AddChildren({ navigation }) {
+import { Button, Text, ButtonText, InnerContainer } from './styles';
+
+export default function AddChildren({ navigation, route }) {
+
+	const [dependentsArray, setDependents] = useState([]);
+	const [ isButtonDisabled, setButtonDisabled] = useState(true)
+
+	useEffect(() => {
+		function setDependentsArray() {
+			if (isEmpty(route.params) || route.params === undefined) return;
+			const array = [...dependentsArray];
+			array.push({...route.params});
+			setDependents(array);
+		}
+
+		setDependentsArray();
+	}, [route]);
+
+	useEffect(() => {
+		function verifyButtonDisabled() {
+			console.log(dependentsArray.length)
+			if (dependentsArray.length > 0) {
+				setButtonDisabled(true)
+			} else {
+				setButtonDisabled(true)
+			}
+		}
+		verifyButtonDisabled();
+	}, [dependentsArray])
+
 	return (
 		<ScrollView>
 			<Container
@@ -17,6 +47,11 @@ export default function AddChildren({ navigation }) {
 							participar das atividades (podem ser seus filhos,
 							sobrinhos, netos)
 						</Text>
+
+						{dependentsArray.length > 0 && <DependentsList 
+							dependentsArray={dependentsArray}
+						/>}
+
 						<Button
 							onPress={() => navigation.navigate('ChildProfile')}
 						>
@@ -25,7 +60,7 @@ export default function AddChildren({ navigation }) {
 					</View>
 
 					<NButton 
-						disable={true} 
+						disabled={true} 
 						style={{ alignSelf: 'flex-end' }}
 					>
 						Concluir
