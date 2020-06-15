@@ -39,7 +39,6 @@ const AuthRoutes = () => {
                 component={AddChildren}
                 options={{
                     headerLeft: null,
-                    title: "Raise"
                 }}
             />
             <AuthStack.Screen
@@ -47,7 +46,6 @@ const AuthRoutes = () => {
                 component={ChildProfile}
                 options={{
                     headerLeft: null,
-                    title: "Raise"
                 }}
             />
             <AuthStack.Screen
