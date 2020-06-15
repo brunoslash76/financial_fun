@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
-import { isEmpty } from '../../utils/utils.functions';
-
-import { Container, DependentsList } from '../../components';
-import { Button as NButton } from '../../components';
+import { isEmpty } from '../../../utils/utils.functions';
+import { Button as NButton, Container, DependentsList } from '../../../components';
 
 import { Button, Text, ButtonText, InnerContainer, ScrollView } from './styles';
 
@@ -58,7 +56,7 @@ export default function AddChildren({ navigation, route }) {
 						<DependentsList dependentsArray={dependentsArray} />
 					}
 
-					<Button onPress={() =>  !isAddDependentButtonDisabled && navigation.navigate('ChildProfile')}>
+					<Button onPress={() =>  {!isAddDependentButtonDisabled && navigation.navigate('ChildProfile')}}>
 						<ButtonText disabled={isAddDependentButtonDisabled}>+Cadastrar novo dependente</ButtonText>
 					</Button>
 				</View>

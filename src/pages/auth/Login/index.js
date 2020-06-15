@@ -1,7 +1,7 @@
-import React, {useState, useRef} from 'react';
-import { TouchableOpacity, Text } from 'react-native'
+import React, { useState, useRef } from 'react';
+import { TouchableOpacity, Text } from 'react-native';
 
-import { Input, Button } from '../../components'
+import { Input, Button } from '../../../components';
 import { 
   Container,
   ImageBackground,
@@ -35,7 +35,7 @@ export default function Login({navigation}) {
   return (
     <Container>
       <ImageBackground
-        source={require('../../../assets/img/login-background.png')}
+        source={require('../../../../assets/img/login-background.png')}
       >
         <ContentContainer>
           <Title>Login</Title>

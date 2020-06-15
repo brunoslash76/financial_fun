@@ -11,7 +11,7 @@ import {
   Button,
   Input,
   Label,
-} from '../../components';
+} from '../../../components';
 
 import {Title, Paragraph} from './styles';
 

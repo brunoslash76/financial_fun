@@ -8,7 +8,7 @@ import {
 	Button,
   Paragraph,
   Switcher,
-} from '../../components';
+} from '../../../components';
 
 import { CustomView, SmallText } from './styles';
 
@@ -96,7 +96,7 @@ const Habits = ({ navigation }) => {
         </View>
         
         <View style={{marginBottom: 32}}>
-					<Button disabled onPress={() => {}}>
+					<Button disabled onPress={() => {navigation.navigate('AddChildren')}}>
 						Próximo
 					</Button>
 				</View>

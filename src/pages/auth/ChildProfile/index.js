@@ -8,7 +8,7 @@ import {
 	AddImageButton,
 	Button,
 	Container,
-} from '../../components';
+} from '../../../components';
 
 import { Section, InnerContainer } from './styles';
 
