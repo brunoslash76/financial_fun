@@ -12,16 +12,15 @@ export const Text = styled.Text`
 
 export const ButtonText = styled.Text`
     font-size: 20px;
-    
     margin-bottom: 32px;
-    color: ${props => props.theme.colors.brandPrimary};
+    color: ${ props => props.disabled ? props.theme.colors.greyDark : props.theme.colors.brandPrimary};
     text-align: left;
 `;
 
 export const Button = styled(RectButton)`
   background-color: transparent;
   border: none;
-  color: ${ props => props.theme.colors.brandPrimary};
+  
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -35,3 +34,7 @@ export const InnerContainer = styled.View`
     min-height: 100%;
     justify-content: space-between;
 `
+
+export const ScrollView = styled.ScrollView`
+    max-height: 320px;
+`;
