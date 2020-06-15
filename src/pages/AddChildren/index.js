@@ -25,9 +25,10 @@ export default function AddChildren({ navigation, route }) {
 
 	useEffect(() => {
 		function verifyButtonDisabled() {
-			console.log(dependentsArray.length)
+			
 			if (dependentsArray.length > 0) {
-				setButtonDisabled(true)
+				setButtonDisabled(false)
+				console.log(dependentsArray)
 			} else {
 				setButtonDisabled(true)
 			}

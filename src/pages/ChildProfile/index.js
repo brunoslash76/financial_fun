@@ -18,6 +18,18 @@ const ChildProfile = ({ navigation }) => {
 
 	const [name, setName] = useState(null);
 	const [age, setAge] = useState(null);
+	const [isButtonDisabled, setButtonDisabled] = useState(true)
+
+	useEffect(() => {
+		function verifyButtonDisabled () {
+			if (name !== "" && age !== "" && name && age) {
+				setButtonDisabled(false)
+			} else {
+				setButtonDisabled(true)
+			}
+		}
+		verifyButtonDisabled()
+	}, [name, age])
 
 	useEffect(() => {
 		return function cleanUpFields() {
@@ -26,8 +38,12 @@ const ChildProfile = ({ navigation }) => {
 		}
 	}, [])
 
-	function verifyFields() {
-		return true;
+	function addDependentInfoToParams() {
+		if (!name || !age) return;
+		navigation.navigate('AddChildren', {
+			name,
+			age,
+		});
 	}
 
 	return (
@@ -71,13 +87,8 @@ const ChildProfile = ({ navigation }) => {
 							/>
 						</View>
 						<Button
-							disabled={verifyFields()}
-							onPress={() => {
-								navigation.navigate('AddChildren', {
-									name,
-									age,
-								});
-							}}
+							disabled={isButtonDisabled}
+							onPress={!isButtonDisabled && addDependentInfoToParams}
 						>
 							Próximo
 						</Button>
