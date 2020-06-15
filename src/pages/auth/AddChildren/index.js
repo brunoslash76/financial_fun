@@ -35,7 +35,7 @@ export default function AddChildren({ navigation, route }) {
 
 	useEffect(() => {
 		function verifyDependentsArrayLength() {
-			if (dependentsArray.length >= 4) {
+			if (dependentsArray.length === 4) {
 				setAddDependentButtonDisabled(true)
 			}
 		}

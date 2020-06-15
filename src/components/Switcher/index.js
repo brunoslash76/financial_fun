@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { 
@@ -7,9 +7,13 @@ import {
     Text,
 } from './styles';
 
-const Switcher = ({text, onPress}) => {
+const Switcher = ({text, onPress, setDefaultValue}) => {
     const [active, setActive] = useState(false);
     const [buttonClicked, setButtonClicked] = useState(0);
+
+    useEffect(() => {
+        setDefaultValue(text[0])
+    }, [])
 
     const handleClick = (value = text[0], buttonActive) => {
         if (onPress) onPress(value);
@@ -35,6 +39,7 @@ const Switcher = ({text, onPress}) => {
 Switcher.propTypes = {
     text: PropTypes.array.isRequired,
     onPress: PropTypes.func.isRequired,
+    setDefaultValue: PropTypes.func.isRequired,
 }
 
 export default Switcher;

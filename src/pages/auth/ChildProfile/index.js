@@ -16,13 +16,13 @@ const ChildProfile = ({ navigation }) => {
 	const nameRef = useRef();
 	const ageRef = useRef();
 
-	const [name, setName] = useState(null);
-	const [age, setAge] = useState(null);
+	const [name, setName] = useState('');
+	const [age, setAge] = useState('');
 	const [isButtonDisabled, setButtonDisabled] = useState(true)
 
 	useEffect(() => {
 		function verifyButtonDisabled () {
-			if (name !== "" && age !== "" && name && age) {
+			if (name !== '' && age !== '') {
 				setButtonDisabled(false)
 			} else {
 				setButtonDisabled(true)
@@ -68,7 +68,7 @@ const ChildProfile = ({ navigation }) => {
 							<Label>Informe o nome do dependente:</Label>
 							<Input
 								darkBorder
-								onChangeText={setName}
+								onChangeText={(v) => setName(v)}
 								value={name}
 								ref={nameRef}
 								returnKeyType='next'
