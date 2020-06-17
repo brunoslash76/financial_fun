@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
-import { isEmpty } from '../../../utils/utils.functions';
+import { isEmpty, objectAlreadyInArray } from '../../../utils/utils.functions';
 import { Button as NButton, Container, DependentsList } from '../../../components';
 
 import { Button, Text, ButtonText, InnerContainer, ScrollView } from './styles';
@@ -23,11 +23,10 @@ export default function AddChildren({ navigation, route }) {
 
 	useEffect(() => {
 		function verifyButtonDisabled() {
-			if (dependentsArray.length > 0) {
-				setButtonDisabled(false);
-				console.log(dependentsArray);
-			} else {
+			if (dependentsArray.length >= 4) {
 				setButtonDisabled(true);
+			} else {
+				setButtonDisabled(false);
 			}
 		}
 		verifyButtonDisabled();

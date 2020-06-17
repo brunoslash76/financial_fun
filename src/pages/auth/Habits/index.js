@@ -21,7 +21,6 @@ const Habits = ({ navigation }) => {
 	const [isButtonDisabled, setButtonDisabled] = useState(true);
 
 	useEffect(() => {
-		console.tron.log('banana')
 	}, [typesOfInvestiments])
 
 	const handleRangeInput = (event) => {
