@@ -6,16 +6,20 @@ import { Container, TInput } from './styles';
 function Input({ style, inputStyle, maxLength, ...rest  }, ref) {
   return (
     <Container style={style}>
-      <TInput {...rest} ref={ref} style={inputStyle} maxLength={maxLength}/>
+      <TInput {...rest} ref={ref} style={inputStyle} maxLength={maxLength} />
     </Container>
   );
 }
 
 Input.propTypes = {
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  inputStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  maxLength: PropTypes.number,
+  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 };
 
 Input.defaultProps = {
+  inputStyle: {},
+  maxLength: 10,
   style: {},
 };
 

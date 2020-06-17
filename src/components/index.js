@@ -6,6 +6,7 @@ import Label from './Label';
 import Title from './Title';
 import Paragraph from './Paragraph';
 import Switcher from './Switcher';
+import DependentsList from './DependentsList'
 
 export {
     AddImageButton,
@@ -16,4 +17,5 @@ export {
     Paragraph,
     Title,
     Switcher,
+    DependentsList,
 };

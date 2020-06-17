@@ -9,4 +9,5 @@ export const Container = styled(RectButton)`
     height: 122px;
     width: 122px;
     align-self: center;
+    margin-bottom: 16px;
 `;
