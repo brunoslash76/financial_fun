@@ -1,11 +1,8 @@
 import React from 'react';
-import FirebaseService from '../../services/FirebaseService';
 
-import {
-    LOGIN_SUCCESS,
-    LOGIN_REQUEST,
-    LOGIN_FAILURE,
-} from '../constants';
+const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+const LOGIN_REQUEST = 'LOGIN_REQUEST';
+const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 const AuthStateContext = React.createContext();
 const AuthDispatchContext = React.createContext();
