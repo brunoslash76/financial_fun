@@ -1,87 +1,112 @@
-import React, { useState, useRef } from 'react';
-import { 
-  KeyboardAvoidingView, 
-  Platform, 
-  ScrollView,
-} from 'react-native';
-
-import { 
-  Container,
-  AddImageButton,
-  Button,
-  Input,
-  Label,
+import React, { useState, useRef, useEffect } from 'react';
+import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {
+	Container,
+	AddImageButton,
+	Button,
+	Input,
+	Label,
 } from '../../../components';
+import { Title, Paragraph } from './styles';
+import useRegister from '../../../customHooks/registerHook';
 
-import {Title, Paragraph} from './styles';
+export default function Profile({ route, navigation }) {
+	const { updateUserData } = useRegister();
 
-export default function Profile({navigation}) {
+	const nameRef = useRef();
+	const ageRef = useRef();
+	const cityRef = useRef();
 
-  const nameRef = useRef();
-  const ageRef = useRef();
-  const cityRef = useRef();
+	const [name, setName] = useState('');
+	const [age, setAge] = useState('');
+	const [city, setCity] = useState('');
+	const [picture, setPicture] = useState('');
+	const [userId, setUserId] = useState(null);
 
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [city, setCity] = useState('');
+	useEffect(() => {
+    console.tron.log(route)
+		setUserId(route.params.userId);
+	}, []);
 
-  const verifyFields = () => {
-    return !(name !== '' && age !== '' && city !== '')
-  }
+	const verifyFields = () => {
+		return !(name !== '' && age !== '' && city !== '');
+	};
 
-  return (
-    <ScrollView>
-      <Container>
-        <KeyboardAvoidingView
-          behavior={Platform.OS == "ios" ? "padding" : "height"}
-          style={{flex: 1}}
-        >
-        
-          <Title>Precisamos de algumas informações para o seu perfil</Title>
+	const onSubmit = () => {
 
-          <AddImageButton onPress={() => console.tron.log('banana')}/>
-          <Paragraph>Escolha uma foto para o seu perfil (opcional)</Paragraph>
+		if (verifyFields()) {
+			alert('Error: All fields are required');
+			return;
+		}
+    
+		const res = updateUserData(userId, {
+			name,
+			age,
+			city,
+      picture,
+		});
 
-          <Label>Informe seu nome:</Label>
-          <Input 
-            darkBorder 
-            onChangeText={setName}
-            value={name}
-            ref={nameRef}
-            returnKeyType="next"
-            onSubmitEditing={() => ageRef.current.focus()}
-          />
+		if (res.error) {
+			alert(res.error);
+			return;
+		}
 
-          <Label >Informe a sua idade:</Label>
-          <Input 
-            darkBorder 
-            style={{width: 80}}
-            onChangeText={setAge}
-            value={age}
-            ref={ageRef}
-            returnKeyType="next"
-            onSubmitEditing={() => cityRef.current.focus()}
-            enablesReturnKeyAutomatically={true}
-          />
+		navigation.navigate('Habits', { userId });
+	};
 
-          <Label>Informe a sua cidade:</Label>
-          <Input 
-            darkBorder
-            onChangeText={setCity}
-            value={city}
-            ref={cityRef}
-            returnKeyType="send"
-            onSubmitEditing={() => navigation.navigate('Habits')}
-          />
+	return (
+		<ScrollView>
+			<KeyboardAwareScrollView style={{ flex: 1, width: '100%' }}>
+				<Container>
+					<Title>
+						Precisamos de algumas informações para o seu perfil
+					</Title>
 
-          <Button 
-            disabled={verifyFields()}
-            onPress={() => {navigation.navigate('Habits')} }
-          >
-            Próximo
-          </Button>
-        </KeyboardAvoidingView>
-        </Container>
-      </ScrollView>
-  );
+					<AddImageButton
+						onPress={() => console.tron.log('banana')}
+					/>
+					<Paragraph>
+						Escolha uma foto para o seu perfil (opcional)
+					</Paragraph>
+
+					<Label>Informe seu nome:</Label>
+					<Input
+						darkBorder
+						onChangeText={setName}
+						value={name}
+						ref={nameRef}
+						returnKeyType='next'
+						onSubmitEditing={() => ageRef.current.focus()}
+					/>
+
+					<Label>Informe a sua idade:</Label>
+					<Input
+						darkBorder
+						style={{ width: 80 }}
+						onChangeText={setAge}
+						value={age}
+						ref={ageRef}
+						returnKeyType='next'
+						onSubmitEditing={() => cityRef.current.focus()}
+						enablesReturnKeyAutomatically={true}
+					/>
+
+					<Label>Informe a sua cidade:</Label>
+					<Input
+						darkBorder
+						onChangeText={setCity}
+						value={city}
+						ref={cityRef}
+						returnKeyType='send'
+						onSubmitEditing={onSubmit}
+					/>
+
+					<Button disabled={verifyFields()} onPress={onSubmit}>
+						Próximo
+					</Button>
+				</Container>
+			</KeyboardAwareScrollView>
+		</ScrollView>
+	);
 }

@@ -3,7 +3,7 @@ import React, {
 	useRef,
 	useEffect,
 } from 'react';
-import { TouchableOpacity, Text, Alert } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 import { checkIfIsEmail, verifyPassword } from '../../../utils/utils.functions';
 import { Input, Button, ErrorAlert, FormContainer } from '../../../components';
 import {
@@ -14,11 +14,11 @@ import {
 	Paragraph,
 	BottomContainer,
 } from './styles';
-import useRegister from './registerHook';
+import useRegister from '../../../customHooks/registerHook';
 
 export default function SignUp({ navigation }) {
 
-	const {createUserWithEmailAndPassword, saveUserToRealtimeWith} = useRegister()
+	const {createUserWithEmailAndPassword, saveUserEmail} = useRegister()
 
 	const passwordRef = useRef();
 	const emailRef = useRef();
@@ -49,25 +49,28 @@ export default function SignUp({ navigation }) {
 	};
 
 	const onRegisterUser = async () => {
+
 		if (verifyEmptyData()) {
 			emailRef.current.focus();
 			setPassword('');
 		}
 
 		const response = await createUserWithEmailAndPassword(email, password);
+
 		if (response.error) {
 			alert(response.error)
 			return
 		}
-		const { user } = response;
-		const res = saveUserToRealtimeWith(user.uid, user.email);
+
+		const res = saveUserEmail(response.user.uid, response.user.email);
 		if (res.error) {
 			alert(res.error)
 			return 
 		}
-		navigation.navigate('Profile', user)
-		clearData();
 
+		console.tron.log(response.user)
+		navigation.navigate('Profile', { userId: response.user.uid })
+		clearData();
 	};
 
 	return (
