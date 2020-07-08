@@ -9,6 +9,7 @@ import Login from '../pages/auth/Login';
 import Habits from '../pages/auth/Habits';
 import AddChildren from '../pages/auth/AddChildren';
 import ChildProfile from '../pages/auth/ChildProfile';
+import RegisterFinish from '../pages/auth/RegisterFinish';
 
 const AuthStack = createStackNavigator();
 const theme = {
@@ -48,6 +49,14 @@ const AuthRoutes = () => {
 				component={Profile}
 				options={{
 					headerLeft: null,
+				}}
+			/>
+			<AuthStack.Screen
+				name='RegisterFinish'
+				component={RegisterFinish}
+				options={{
+					headerLeft: null,
+					headerShown: false,
 				}}
 			/>
 			<AuthStack.Screen name='Habits' component={Habits} />
