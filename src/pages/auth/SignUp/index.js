@@ -68,7 +68,6 @@ export default function SignUp({ navigation }) {
 			return 
 		}
 
-		console.tron.log(response.user)
 		navigation.navigate('Profile', { userId: response.user.uid })
 		clearData();
 	};
@@ -85,7 +84,7 @@ export default function SignUp({ navigation }) {
 						<Input
 							onChangeText={(text) => handleEmailInput(text)}
 							value={email}
-							autoCapitalize={false}
+							autoCapitalize='none'
 							keyboardType='email-address'
 							autoCorrect={false}
 							returnKeyType='next'
@@ -100,7 +99,7 @@ export default function SignUp({ navigation }) {
 							onChangeText={(text) => handlePasswordInput(text)}
 							value={password}
 							secureTextEntry
-							autoCapitalize={false}
+							autoCapitalize='none'
 							ref={passwordRef}
 							returnKeyType='send'
 							onSubmitEditing={onRegisterUser}
