@@ -182,7 +182,6 @@ const Habits = ({ route, navigation }) => {
 							onPress={onSubmitData}
 						>
 							Próximo
-							{console.tron.log(isButtonDisabled)}
 						</Button>
 					</View>
 				</Container>

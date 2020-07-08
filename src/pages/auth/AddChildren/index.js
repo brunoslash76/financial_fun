@@ -62,7 +62,6 @@ export default function AddChildren({ navigation, route }) {
 		const array = [];
 		const obj = snapshot.val();
 		for (let i in obj) {
-			console.tron.log(obj[i])
 			array.push(obj[i])
 		}
 

@@ -25,7 +25,6 @@ export default function Profile({ route, navigation }) {
 	const [userId, setUserId] = useState(null);
 
 	useEffect(() => {
-    console.tron.log(route)
 		setUserId(route.params.userId);
 	}, []);
 

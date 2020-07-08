@@ -69,13 +69,11 @@ async function getUSersDependents(id, setState) {
     const response  = await userRef.on(
         'value',
         snapshot => {
-            console.tron.log('======= SNAPSHOT =======',snapshot)
             if (snapshot){
                 setState((snapshot))
             }
         },
         error => {
-            console.tron.log('======= ERROR =======',error)
             return error
         }
     )
@@ -85,7 +83,6 @@ async function deleteDependent(dependent) {
     const {id, parentId} = dependent;
     try {
         let dependentRef = firebase.database().ref(`users/${dependent.parentId}/dependents/${dependent.id}`)
-        console.tron.log('DEPENDENT REF => ',dependentRef)
         await dependentRef.remove();
     } catch (error) {
         return error;
