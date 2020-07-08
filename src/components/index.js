@@ -1,21 +1,25 @@
 import AddImageButton from './AddImageButton';
 import Button from './Button';
 import Container from './Container';
+import DependentsList from './DependentsList';
+import ErrorAlert from './ErrorAlert';
+import FormContainer from './FormContainer';
 import Input from './Input';
 import Label from './Label';
-import Title from './Title';
 import Paragraph from './Paragraph';
 import Switcher from './Switcher';
-import DependentsList from './DependentsList'
+import Title from './Title';
 
 export {
     AddImageButton,
     Button,
     Container,
+    DependentsList,
+    ErrorAlert,
+    FormContainer,
     Input,
     Label,
     Paragraph,
-    Title,
     Switcher,
-    DependentsList,
+    Title,
 };

@@ -11,16 +11,4 @@ function Input({ style, inputStyle, maxLength, ...rest  }, ref) {
   );
 }
 
-Input.propTypes = {
-  inputStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  maxLength: PropTypes.number,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
-};
-
-Input.defaultProps = {
-  inputStyle: {},
-  maxLength: 10,
-  style: {},
-};
-
 export default forwardRef(Input);

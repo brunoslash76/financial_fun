@@ -3,6 +3,8 @@ import { TouchableOpacity, Text, View } from 'react-native';
 import { SwipeListView, SwipeRow } from 'react-native-swipe-list-view';
 import PropTypes from 'prop-types';
 import DependentsItem from '../DependentsItem';
+import useRegister from '../../customHooks/registerHook'
+
 
 const styles = {
 	container: {
@@ -30,19 +32,24 @@ const styles = {
 const DependentsList = ({ dependentsArray }) => {
 
 	const [count, setCount] = useState(0)
-
+	const {deleteDependent} = useRegister();
 	useEffect(() => {}, [count, dependentsArray]);
 
-	function deleteItem(index, rowMap) {
-		dependentsArray.splice(index, 1);
-		rowMap[index].closeRow();
-		setCount(count + 1)
+	function deleteItem(rowData, rowMap) {
+		const deletedDependent = dependentsArray.splice(rowData.index, 1);
+		deleteDependent(deletedDependent[0]);
+		rowMap[rowData.item.index].closeRow();
+		setCount(count - 1)
 	}
 
 	function renderHiddenItem(rowData, rowMap) {
+
 		return (
 			<View style={styles.container}>
-				<TouchableOpacity style={styles.touchableOpacity} onPress={_ => deleteItem(rowData.item.index, rowMap)}>
+				<TouchableOpacity 
+					style={styles.touchableOpacity} 
+					onPress={_ => deleteItem(rowData, rowMap)}
+				>
 					<Text style={styles.text}>Delete</Text>
 				</TouchableOpacity>
 			</View>
@@ -60,8 +67,9 @@ const DependentsList = ({ dependentsArray }) => {
 	return dependentsArray.length > 0 ? (
 		<SwipeListView
 			useFlatList
+			useAnimatedList
 			data={dependentsArray}
-			renderItem={(data, rowMap) => renderItem(data, rowMap)}
+			renderItem={(data) => renderItem(data)}
 			renderHiddenItem={(rowData, rowMap) => renderHiddenItem(rowData, rowMap)}
 			rightOpenValue={-75}
 		/>

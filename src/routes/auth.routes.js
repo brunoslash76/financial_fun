@@ -11,7 +11,6 @@ import AddChildren from '../pages/auth/AddChildren';
 import ChildProfile from '../pages/auth/ChildProfile';
 
 const AuthStack = createStackNavigator();
-
 const theme = {
 	color: {
 		brandPrimary: '#16B4A1',
@@ -34,31 +33,26 @@ const AuthRoutes = () => {
 			}}
 		>
 			<AuthStack.Screen
-				name='SignUp'
-				component={SignUp}
-				options={{ headerShown: false }}
-			/>
-			<AuthStack.Screen
 				name='Login'
 				component={Login}
 				options={{ headerShown: false }}
 			/>
-			<AuthStack.Screen name='Habits' component={Habits} />
+
+			<AuthStack.Screen
+				name='SignUp'
+				component={SignUp}
+				options={{ headerShown: false }}
+			/>
 			<AuthStack.Screen
 				name='Profile'
 				component={Profile}
 				options={{
 					headerLeft: null,
 				}}
-            />
-            <AuthStack.Screen
-				name='AddChildren'
-				component={AddChildren}
-            />
-            <AuthStack.Screen
-				name='ChildProfile'
-				component={ChildProfile}
 			/>
+			<AuthStack.Screen name='Habits' component={Habits} />
+			<AuthStack.Screen name='AddChildren' component={AddChildren} />
+			<AuthStack.Screen name='ChildProfile' component={ChildProfile} />
 		</AuthStack.Navigator>
 	);
 };
