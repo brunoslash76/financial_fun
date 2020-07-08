@@ -30,7 +30,8 @@ const RegisterFinish = ({ route, navigation }) => {
 	const printDependentsName = () => dependentsName.join(', ');
     
     const handleOnPress = async () => {
-        const user = await authenticateCurrentUser();
+        const newUser = await authenticateCurrentUser();
+        const user = {...newUser, firstAccess: true}
         dispatch({type: LOGIN_SUCCESS, payload: user})
 
     }
