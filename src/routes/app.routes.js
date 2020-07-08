@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Home from '../pages/Home';
+import Home from '../pages/app/Home';
 
 const AppBottomTabs = createBottomTabNavigator();
 const FirstAccessStack = createStackNavigator();

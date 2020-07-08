@@ -6,17 +6,9 @@ import { Container, TInput } from './styles';
 function Input({ style, inputStyle, maxLength, ...rest  }, ref) {
   return (
     <Container style={style}>
-      <TInput {...rest} ref={ref} style={inputStyle} maxLength={maxLength}/>
+      <TInput {...rest} ref={ref} style={inputStyle} maxLength={maxLength} />
     </Container>
   );
 }
-
-Input.propTypes = {
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-};
-
-Input.defaultProps = {
-  style: {},
-};
 
 export default forwardRef(Input);

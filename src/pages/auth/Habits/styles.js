@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {Paragraph} from  '../../components';
+import {Paragraph} from  '../../../components';
 
 export const CustomView = styled.View`
     flex-direction: row;
