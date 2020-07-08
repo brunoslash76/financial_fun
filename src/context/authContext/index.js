@@ -18,7 +18,6 @@ function AuthProvider({children}) {
     }
 
     const [state, dispatch] = React.useReducer(authReducer, initialState);
-    console.tron.log(state)
     return (
         <AuthStateContext.Provider value={state}>
             <AuthDispatchContext.Provider value={dispatch}>
@@ -30,7 +29,6 @@ function AuthProvider({children}) {
 
 function useAuthState() {
     const context = React.useContext(AuthStateContext);
-    console.tron.log('Essa porra', context)
     if (context === undefined) {
         throw new Error('1 useAuthState must be used within a AuthProvider')
     }

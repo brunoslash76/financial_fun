@@ -30,7 +30,7 @@ export const BottomContainer = styled.View`
 
 export const ImageBackground = styled.ImageBackground`
     flex: 1;
-    resizeMode: cover;
+    /* resizemode: cover; */
     justify-content: center;
     align-items: center;
     width: 100%;

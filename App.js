@@ -9,11 +9,11 @@ import './src/config/reactotron.config';
 export default function App() {
 	return (
 		<Theme>
-			<NavigationContainer>
-				<AuthProvider>
+			<AuthProvider>
+				<NavigationContainer>
 					<Routes />
-				</AuthProvider>
-			</NavigationContainer>
+				</NavigationContainer>
+			</AuthProvider>
 		</Theme>
 	);
 }

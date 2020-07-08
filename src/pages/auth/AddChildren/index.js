@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 
-import { isEmpty, objectAlreadyInArray } from '../../../utils/utils.functions';
 import {
 	Button as NButton,
 	Container,
@@ -68,7 +67,10 @@ export default function AddChildren({ navigation, route }) {
 		setDependents(array);
 	}
 
-	const onSubmit = () => {};
+	const onSubmit = () => {
+		const dependentsNames = dependentsArray.map( dependent => dependent.name)
+		navigation.navigate('RegisterFinish', {dependentsNames})
+	};
 
 	return (
 		<Container style={{ display: 'flex', justifyContent: 'space-between' }}>
