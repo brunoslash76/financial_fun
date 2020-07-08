@@ -37,8 +37,6 @@ export default function Login({ navigation }) {
 	const shouldNavigate = async () => {
 		try {
 			const response = await signIn(email, password);
-			console.tron.log(response);
-			console.tron.log('VAI TOMAR NO CU');
 			dispatch({ type: LOGIN_SUCCESS, payload: response.user });
 		} catch (error) {
 			emailRef.current.focus();
