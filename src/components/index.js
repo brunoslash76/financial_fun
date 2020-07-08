@@ -1,5 +1,6 @@
 import AddImageButton from './AddImageButton';
 import Button from './Button';
+import Card from './Card'
 import Container from './Container';
 import DependentsList from './DependentsList';
 import ErrorAlert from './ErrorAlert';
@@ -13,6 +14,7 @@ import Title from './Title';
 export {
     AddImageButton,
     Button,
+    Card,
     Container,
     DependentsList,
     ErrorAlert,

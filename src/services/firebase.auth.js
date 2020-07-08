@@ -9,6 +9,18 @@ async function signIn (email, password) {
     }
 }
 
+async function authenticateCurrentUser() {
+    try {
+        const user = await firebase.auth().currentUser
+        console.tron.log('authenticateCurrentUser', user);
+        return user;
+    } catch (error) {
+        console.tron.log('ERROR', error)
+        throw new Error(error)
+    }
+}
+
 export {
     signIn,
+    authenticateCurrentUser,
 };
