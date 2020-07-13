@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
-import authReducer from './reducer'
+import React from 'react';
 
 const AuthStateContext = React.createContext();
 const AuthDispatchContext = React.createContext();
 
 AuthStateContext.displayName = 'AuthStateContext';
 AuthDispatchContext.displayName = 'AuthDispatchContext';
-
-
 
 function AuthProvider({children}) {
 
