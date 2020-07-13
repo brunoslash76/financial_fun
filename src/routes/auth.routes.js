@@ -10,6 +10,7 @@ import Habits from '../pages/auth/Habits';
 import AddChildren from '../pages/auth/AddChildren';
 import ChildProfile from '../pages/auth/ChildProfile';
 import RegisterFinish from '../pages/auth/RegisterFinish';
+import { CameraView } from '../components';
 
 const AuthStack = createStackNavigator();
 const theme = {
@@ -34,6 +35,13 @@ const AuthRoutes = () => {
 			}}
 		>
 			<AuthStack.Screen
+				name='Profile'
+				component={Profile}
+				options={{
+					headerLeft: null,
+				}}
+			/>
+			<AuthStack.Screen
 				name='Login'
 				component={Login}
 				options={{ headerShown: false }}
@@ -44,16 +52,18 @@ const AuthRoutes = () => {
 				component={SignUp}
 				options={{ headerShown: false }}
 			/>
-			<AuthStack.Screen
-				name='Profile'
-				component={Profile}
-				options={{
-					headerLeft: null,
-				}}
-			/>
+			
 			<AuthStack.Screen
 				name='RegisterFinish'
 				component={RegisterFinish}
+				options={{
+					headerLeft: null,
+					headerShown: false,
+				}}
+			/>
+			<AuthStack.Screen
+				name='TakeAPicture'
+				component={CameraView}
 				options={{
 					headerLeft: null,
 					headerShown: false,

@@ -10,6 +10,7 @@ import Label from './Label';
 import Paragraph from './Paragraph';
 import Switcher from './Switcher';
 import Title from './Title';
+import CameraView from './CameraView';
 
 export {
     AddImageButton,
@@ -24,4 +25,5 @@ export {
     Paragraph,
     Switcher,
     Title,
+    CameraView,
 };

@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
 import {
 	Container,
 	AddImageButton,
 	Button,
 	Input,
 	Label,
+	CameraView,
 } from '../../../components';
 import { Title, Paragraph } from './styles';
 import useRegister from '../../../customHooks/registerHook';
@@ -18,32 +20,33 @@ export default function Profile({ route, navigation }) {
 	const ageRef = useRef();
 	const cityRef = useRef();
 
+	const [shouldShowCamera, setShowCamera] = useState(false);
+
 	const [name, setName] = useState('');
 	const [age, setAge] = useState('');
 	const [city, setCity] = useState('');
 	const [picture, setPicture] = useState('');
 	const [userId, setUserId] = useState(null);
 
-	useEffect(() => {
-		setUserId(route.params.userId);
-	}, []);
+	// useEffect(() => {
+	// 	setUserId(route.params.userId);
+	// }, []);
 
 	const verifyFields = () => {
 		return !(name !== '' && age !== '' && city !== '');
 	};
 
 	const onSubmit = () => {
-
 		if (verifyFields()) {
 			alert('Error: All fields are required');
 			return;
 		}
-    
+
 		const res = updateUserData(userId, {
 			name,
 			age,
 			city,
-      picture,
+			picture,
 		});
 
 		if (res.error) {
@@ -54,6 +57,10 @@ export default function Profile({ route, navigation }) {
 		navigation.navigate('Habits', { userId });
 	};
 
+	function handleCameraUse() {
+		navigation.navigate('TakeAPicture', { userId })
+	}
+
 	return (
 		<ScrollView>
 			<KeyboardAwareScrollView style={{ flex: 1, width: '100%' }}>
@@ -63,7 +70,10 @@ export default function Profile({ route, navigation }) {
 					</Title>
 
 					<AddImageButton
-						onPress={() => console.tron.log('banana')}
+						onPress={() => {
+							console.tron.log('aqui');
+							handleCameraUse();
+						}}
 					/>
 					<Paragraph>
 						Escolha uma foto para o seu perfil (opcional)
@@ -101,7 +111,10 @@ export default function Profile({ route, navigation }) {
 						onSubmitEditing={onSubmit}
 					/>
 
-					<Button disabled={verifyFields()} onPress={onSubmit}>
+					<Button
+						disabled={true /*verifyFields()*/}
+						onPress={onSubmit}
+					>
 						Próximo
 					</Button>
 				</Container>
