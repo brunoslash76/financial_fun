@@ -18,4 +18,8 @@ DependentsItem.propTypes = {
     title: PropTypes.string.isRequired,
 }
 
+DependentsItem.defaultProps = {
+    image: '',
+}
+
 export default DependentsItem;

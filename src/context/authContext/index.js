@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import authReducer from './reducer'
 
 const AuthStateContext = React.createContext();
@@ -6,8 +6,6 @@ const AuthDispatchContext = React.createContext();
 
 AuthStateContext.displayName = 'AuthStateContext';
 AuthDispatchContext.displayName = 'AuthDispatchContext';
-
-
 
 function AuthProvider({children}) {
 
@@ -43,8 +41,4 @@ function useAuthDispatch() {
     return context;
 }
 
-export {
-    AuthProvider,
-    useAuthState,
-    useAuthDispatch,
-}
+export { AuthProvider, useAuthState, useAuthDispatch }
