@@ -15,45 +15,49 @@ AuthDispatchContext.displayName = 'AuthDispatchContext';
 
 
 // TODO: Implement function to each action
-function authReducer(state, action) {
+function userReducer(state, action) {
     switch (action.type) {
         case LOGIN_SUCCESS:
-            // redirect to in app
             break;
         case LOGIN_REQUEST:
-            // request server for credentials 
             break;
         case LOGIN_FAILURE:
-            // redirect back to login form with error message
             break;
     }
 }
 
-function AuthProvider({children}) {
-    const [state, dispatch] = React.useReducer(authReducer, {email: '', password: ''});
+function UserProvider({children}) {
+    const [state, dispatch] = React.useReducer(
+        userReducer, 
+        {
+            email: '', 
+            fullName: '',
+            city: '',
+            age: ''
+        });
     return (
-        <AuthStateContext.Provider value={state}>
-            <AuthDispatchContext.Provider value={dispatch}>
+        <UserStateContext.Provider value={state}>
+            <UserDispatchContext.Provider value={dispatch}>
                 {children}
-            </AuthDispatchContext.Provider>
-        </AuthStateContext.Provider>
+            </UserDispatchContext.Provider>
+        </UserStateContext.Provider>
     )
 }
 
-function useAuthState() {
+function useUserState() {
     const context = React.useContext(AuthStateContext);
     if (context === undefined) {
-        throw new Error('useAuthContext must be used within a AuthProvider')
+        throw new Error('useUserContext must be used within a UserProvider')
     }
     return context;
 }
 
-function useAuthDispatch() {
+function useUserDispatch() {
     const context = React.useContext(AuthDispatchContext);
     if (context === undefined) {
-        throw new Error('useAuthContext must be used within a AuthProvider');
+        throw new Error('useUserContext must be used within a UserProvider');
     }
     return context;
 }
 
-export {AuthProvider, useAuthState, useAuthDispatch}
+export {UserProvider, useUserState, useUserDispatch}

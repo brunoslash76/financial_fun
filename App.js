@@ -1,20 +1,19 @@
 import React from 'react';
-import FirebaseService from './src/services/FirebaseService';
-import { View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { AuthProvider } from './src/context/authContext';
 
+import Routes from './src/routes';
+import Theme from './src/theme';
 import './src/config/reactotron.config';
 
 export default function App() {
-
-    // const user = useAuth()
-
-    React.useEffect(() => {
-      const credentials = FirebaseService.login('bruo@email.com', 'btruno@123');
-      console.tron.log(credentials);
-    }, [])
-
-
-  return (
-    <View></View>
-  );
+	return (
+		<Theme>
+			<AuthProvider>
+				<NavigationContainer>
+					<Routes />
+				</NavigationContainer>
+			</AuthProvider>
+		</Theme>
+	);
 }

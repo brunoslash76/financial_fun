@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 
 import {
     APIKEY,
@@ -7,8 +7,6 @@ import {
     PROJECTID,
     STORAGEBUCKET,
     MESSAGINGSENDERID,
-    APPID,
-    MEASUREMENTID,
 } from 'react-native-dotenv';
 
 const config = {
@@ -20,6 +18,5 @@ const config = {
     messagingSenderId: MESSAGINGSENDERID,
 };
 
-export const firebaseImplementation = firebase.initializeApp(config);
-export const firebaseDatabase = firebase.database();
-export const firebaseAuth = firebase.auth();
+firebase.initializeApp(config);
+export default firebase;
