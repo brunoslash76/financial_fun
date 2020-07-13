@@ -9,6 +9,7 @@ import Label from './Label';
 import Paragraph from './Paragraph';
 import Switcher from './Switcher';
 import Title from './Title';
+import Header from './Header';
 
 export {
     AddImageButton,
@@ -22,4 +23,5 @@ export {
     Paragraph,
     Switcher,
     Title,
+    Header,
 };
