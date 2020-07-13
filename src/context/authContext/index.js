@@ -1,4 +1,5 @@
 import React from 'react';
+import authReducer from './reducer'
 
 const AuthStateContext = React.createContext();
 const AuthDispatchContext = React.createContext();
@@ -40,8 +41,4 @@ function useAuthDispatch() {
     return context;
 }
 
-export {
-    AuthProvider,
-    useAuthState,
-    useAuthDispatch,
-}
+export { AuthProvider, useAuthState, useAuthDispatch }
