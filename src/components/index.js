@@ -11,6 +11,7 @@ import Paragraph from './Paragraph';
 import Switcher from './Switcher';
 import Title from './Title';
 import Header from './Header';
+import FirstAccessComponents from './FirstAccessComponents';
 
 export {
     AddImageButton,
@@ -26,4 +27,5 @@ export {
     Switcher,
     Title,
     Header,
+    FirstAccessComponents,
 };
