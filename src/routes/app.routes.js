@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-import Home from '../pages/app/Path';
+import Home from '../pages/app/Home';
 import Goals from '../pages/app/Goals';
 import Achievements from '../pages/app/Achievements';
 import Lectures from '../pages/app/Lectures';

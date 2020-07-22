@@ -13,6 +13,7 @@ const theme = {
         grey: '#5e5e5e',
         greyLight: '#9f9f9f',
         greyDark: '#afafaf',
+        backgroundGrey: '#F3F5F5',
     },
     font: {
         family: {

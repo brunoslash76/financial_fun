@@ -73,7 +73,7 @@ export default function SignUp({ navigation }) {
 	};
 
 	return (
-		<Container>
+		<Container style={{backgroundColor: '#48CED7'}}>
 			<ImageBackground
 				source={require('../../../../assets/img/login-background.png')}
 			>
