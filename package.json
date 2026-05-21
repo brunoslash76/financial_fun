@@ -15,7 +15,7 @@
     "@use-expo/font": "^2.0.0",
     "axios": "^0.19.2",
     "expo": "~37.0.3",
-    "firebase": "7.9.0",
+    "firebase": "12.13.0",
     "prop-types": "^15.7.2",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
